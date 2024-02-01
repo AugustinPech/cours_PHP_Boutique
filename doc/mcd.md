@@ -17,7 +17,7 @@ erDiagram
         decimal weight
         integer stock
     }
-    ORDERS }o--|{ PRODUCTS : contains
+    ORDERS }o..|{ PRODUCTS : contains
     ORDERS {
         integer id
         date registrationDate

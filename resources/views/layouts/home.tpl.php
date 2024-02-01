@@ -1,27 +1,10 @@
 <?php
-$metaTitle = "show";
+$metaTitle='Hello World';
 include('../resources/views/layouts/header.tpl.php');
 ?>
 
-Products
+home !
 
 <?php
 include('../resources/views/layouts/footer.tpl.php');
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

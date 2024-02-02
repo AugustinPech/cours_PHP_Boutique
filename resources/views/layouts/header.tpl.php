@@ -20,8 +20,7 @@
 <section class="nav">
     <nav>
         <a href="/?action=home">Home page</a>
-        <a href="/?action=show">Products</a>
-        <a href="/?action=test">Contact</a>
+        <a href="/?action=cart">Chariot</a>
     </nav>
 </section>
 </body>

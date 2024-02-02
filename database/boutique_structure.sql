@@ -43,7 +43,7 @@ CREATE TABLE `orders` (
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
                             `id` int(11) NOT NULL AUTO_INCREMENT,
-                            `name` varchar(55) DEFAULT NULL,
+                            `title` varchar(55) DEFAULT NULL,
                             `description` varchar(1000) DEFAULT NULL,
                             `stock` int(10) unsigned DEFAULT NULL,
                             `path_img` varchar(500) DEFAULT NULL,

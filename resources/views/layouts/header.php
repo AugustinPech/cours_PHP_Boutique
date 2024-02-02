@@ -24,7 +24,6 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link text-uppercase font-weight-bold">Accueil</a> </li>
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">A propos</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Galerie</a></li>
                     </ul>
                 </div>
             </div>

@@ -2,8 +2,8 @@
 header('HTTP/1.0 404 Not Found');
 $metatitle='404 Error - Not Found';
 $metadescription= 'La page demandée n existe pas';
-include '../ressources/views/layouts/head.php';
-include '../ressources/views/layouts/header.php';
+include '../ressources/views/layouts/head.tpl.php';
+include '../ressources/views/layouts/header.tpl.php';
 ?>
 <section class="page_404">
 	<div class="container">
@@ -20,7 +20,7 @@ include '../ressources/views/layouts/header.php';
 
 						<p>the page you are looking for not avaible!</p>
 
-						<a href="/index.php?page=CV" class="link_404">Go to Home</a>
+						<a href="/index.php" class="link_404">Go to Home</a>
 					</div>
 				</div>
 			</div>
@@ -28,5 +28,5 @@ include '../ressources/views/layouts/header.php';
 	</div>
 </section>
 <?php
-include '../ressources/views/layouts/footer.php';
+include '../ressources/views/layouts/footer.tpl.php';
 ?>

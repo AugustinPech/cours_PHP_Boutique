@@ -10,11 +10,11 @@ include '../ressources/views/layouts/header.tpl.php';
 <div class="d-flex col-12 flex-row flex-wrap justify-content-around ">
     <?php if (count($getProducts) > 0) : ?>
         <?php foreach ($getProducts as $product) : ?>
-            <div class="col-3">
+            <div class=" col-3 border border-dark d-flex flex-column align-items-center ">
                 <p><a href="/?action=product&id=<?php echo $product['id']; ?>">
                     <?php echo $product['title']; ?>
                 </a></p>
-                <img src="img/product.avif" alt="product" class="col-4 me-5">
+                <img src="img/product.avif" alt="product" class="col-10 m-1">
             </div>
         <?php endforeach;
     else : ?><div> Aucun Produits à afficher.</div>

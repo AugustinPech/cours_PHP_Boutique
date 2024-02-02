@@ -1,3 +1,16 @@
 header {
     height : 10vw;
 }
+
+.navbar-link a {
+    color : darkblue;
+    border: solid blue 2px;
+    border-radius: 15px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navbar-link a:hover {
+    color: aqua;
+
+}

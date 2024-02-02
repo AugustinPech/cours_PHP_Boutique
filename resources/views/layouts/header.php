@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -19,13 +23,15 @@
     <header class="row" height="">
         <nav class="navbar navbar-expand-lg py-3">
             <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"></a>
-                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link text-uppercase font-weight-bold">Accueil</a> </li>
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">A propos</a></li>
                     </ul>
                 </div>
+                <?php if ($_GET['action'] != 'cart'): ?>
+                <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
+                <?php endif;?>
             </div>
         </nav>
     </header>

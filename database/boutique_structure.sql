@@ -34,11 +34,12 @@ CREATE TABLE IF NOT EXISTS `boutique`.`Products` (
                                                      `id` INT NOT NULL AUTO_INCREMENT,
                                                      `title` VARCHAR(45) NULL,
     `description` VARCHAR(45) NULL,
-    `price WT` DECIMAL(9,2) NULL,
+    `priceWT` DECIMAL(9,2) NULL,
     `weight` DECIMAL(9,2) NULL,
     `TVA` DECIMAL(9,2) NULL,
     `stock` INT NULL,
     `Categories_id` INT NOT NULL,
+    `priceTTC` DECIMAL(9,2) NOT NULL,
     PRIMARY KEY (`id`),
     INDEX `fk_Products_Categories1_idx` (`Categories_id` ASC) VISIBLE,
     CONSTRAINT `fk_Products_Categories1`

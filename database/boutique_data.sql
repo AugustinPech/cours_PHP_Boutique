@@ -50,22 +50,22 @@ INSERT INTO `Order` (`id`, `orderDate`, `deliveryDate`, `Client_id`) VALUES
                                                                          (14,	'2024-03-05',	'2024-03-25',	10);
 
 TRUNCATE `Products`;
-INSERT INTO `Products` (`id`, `title`, `description`, `price WT`, `weight`, `TVA`, `stock`, `Categories_id`) VALUES
-                                                                                                                 (125,	'Gourmet Dining Set',	'An elegant dining set with luxury forks',	89.99,	1.00,	0.20,	50,	1),
-                                                                                                                 (126,	'Silver Spoon and Fork Set',	'A set of silver-plated fork',	129.99,	1.50,	0.20,	30,	2),
-                                                                                                                 (127,	'Golden Touch Fork Collection',	'A collection of forks with a golden touch',	149.99,	1.20,	0.20,	40,	3),
-                                                                                                                 (128,	'Chic Ebony Forks',	'Ebony-handled forks',	99.99,	1.00,	0.20,	60,	1),
-                                                                                                                 (129,	'Classic Stainless Steel Forks',	'High-quality stainless steel',	49.99,	0.80,	0.20,	80,	2),
-                                                                                                                 (130,	'Artisanal Silver Fork',	'Handcrafted silver fork',	179.99,	1.20,	0.20,	20,	5),
-                                                                                                                 (131,	'Modern Minimalist Fork Set',	'Sleek and modern fork set',	69.99,	0.90,	0.20,	70,	2),
-                                                                                                                 (132,	'Vintage Brass Forks',	'Antique-style brass forks',	159.99,	1.00,	0.20,	25,	3),
-                                                                                                                 (133,	'Culinary Masterpiece Set',	'A set of forks',	199.99,	1.50,	0.20,	15,	4),
-                                                                                                                 (134,	'Rustic Wooden Handle Forks',	'Forks with rustic wooden handles',	79.99,	1.00,	0.20,	55,	2),
-                                                                                                                 (135,	'Luxury Gold-Plated Forks',	'Gold-plated forks for a luxurious and elegant',	219.99,	1.20,	0.20,	10,	1),
-                                                                                                                 (136,	'Dainty Pearl Handled Forks',	'Forks with delicate pearl',	129.99,	1.00,	0.20,	35,	5),
-                                                                                                                 (137,	'Whimsical Dessert Fork Set',	'A set of playful and whimsical dessert forks',	59.99,	0.70,	0.20,	75,	4),
-                                                                                                                 (138,	'Gastronome Choice Forks',	'Forks designed for the discerning gastronome',	189.99,	1.30,	0.20,	30,	3),
-                                                                                                                 (139,	'Modern Art Sculptural Forks',	'Forks with sculptural designs',	149.99,	1.00,	0.20,	45,	5);
+INSERT INTO `Products` (`id`, `title`, `description`, `priceWT`, `weight`, `TVA`, `stock`, `Categories_id`, `priceTTC`) VALUES
+                                                                                                                 (125,	'Gourmet Dining Set',	'An elegant dining set with luxury forks',	89.99,	1.00,	18.00,	50,	1, 107.99),
+                                                                                                                 (126,	'Silver Spoon and Fork Set',	'A set of silver-plated fork',	129.99,	1.50,	26.00,	30,	2, 155.99),
+                                                                                                                 (127,	'Golden Touch Fork Collection',	'A collection of forks with a golden touch',	149.99,	1.20,	30.00,	40,	3, 179.99),
+                                                                                                                 (128,	'Chic Ebony Forks',	'Ebony-handled forks',	99.99,	1.00,	20,	60,	1, 119.99),
+                                                                                                                 (129,	'Classic Stainless Steel Forks',	'High-quality stainless steel',	49.99,	0.80,  10,	80,	2, 59.99),
+                                                                                                                 (130,	'Artisanal Silver Fork',	'Handcrafted silver fork',	179.99,	1.20,	36,	20,	5, 215.99),
+                                                                                                                 (131,	'Modern Minimalist Fork Set',	'Sleek and modern fork set',	69.99,	0.90,	14,	70,	2, 83.99),
+                                                                                                                 (132,	'Vintage Brass Forks',	'Antique-style brass forks',	159.99,	1.00,  32,	25,	3, 191.99),
+                                                                                                                 (133,	'Culinary Masterpiece Set',	'A set of forks',	199.99,	1.50,	40,	15,	4, 239.99),
+                                                                                                                 (134,	'Rustic Wooden Handle Forks',	'Forks with rustic wooden handles',	79.99,	1.00,  16,	55,	2, 95.99),
+                                                                                                                 (135,	'Luxury Gold-Plated Forks',	'Gold-plated forks for a luxurious and elegant',	219.99,	1.20,  44,	10,	1, 263.99),
+                                                                                                                 (136,	'Dainty Pearl Handled Forks',	'Forks with delicate pearl',	129.99,	1.00, 26 ,	35,	5, 155.99),
+                                                                                                                 (137,	'Whimsical Dessert Fork Set',	'A set of playful and whimsical dessert forks',	59.99,	0.70,	12,	75,	4, 71.99),
+                                                                                                                 (138,	'Gastronome Choice Forks',	'Forks designed for the discerning gastronome',	189.99,	1.30,  38,	30,	3, 227.99),
+                                                                                                                 (139,	'Modern Art Sculptural Forks',	'Forks with sculptural designs',	149.99,	1.00, 30 ,	45,	5, 179.99);
 
 TRUNCATE `Products_has_Order`;
 INSERT INTO `Products_has_Order` (`Produits_id`, `Order_id`, `quantity`) VALUES

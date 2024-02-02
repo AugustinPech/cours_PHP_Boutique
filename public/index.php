@@ -1,1 +1,3 @@
-<?= "Bienvenue sur la boutique" ?>
+<?php
+
+include '../route/web.php';

@@ -36,7 +36,7 @@
             </li> -->
           </ul>
           <div class="d-flex gap-2">
-            <a href="/index.php?action=contact" class="btn btn-light">Contactez nous</a>
+            <a href="/?action=contact" class="btn btn-light">Contactez nous</a>
             <!-- <a href="AAJA HTML-CSS/pages/intranet.html" class="btn btn-primary ml-2">Sign in</a> -->
             <a href="" class="btn btn-primary ml-2">Sign in</a>
           </div>

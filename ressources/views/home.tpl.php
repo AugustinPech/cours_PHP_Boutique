@@ -14,9 +14,7 @@ include '../ressources/views/layouts/header.tpl.php';
                 <p><a href="/?action=product&id=<?php echo $product['id']; ?>">
                     <?php echo $product['title']; ?>
                 </a></p>
-                <?php foreach ($product as $key => $value) : ?>
-                    <?php echo "[$key] -- $value <br>"; ?>
-                <?php endforeach; ?>
+                <img src="img/product.avif" alt="product" class="col-4 me-5">
             </div>
         <?php endforeach;
     else : ?><div> Aucun Produits à afficher.</div>

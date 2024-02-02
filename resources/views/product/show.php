@@ -1,0 +1,19 @@
+<!--<div class="row">-->
+    <section class="row">
+        <h2><?=$product["name"]?></h2>
+        <article class="col d-flex">
+            <img src="https://placehold.co/160x200" alt="photo du produit : <?=$product["name"]?>" width="160">
+            <div class="d-flex flex-column justify-content-between px-3">
+                <p><?=$product["description"]?></p>
+                <div>
+                    <div class="pb-3">Prix à l'unité : <?=$product["price"]?> €</div>
+                    <form method="post" action="/index.php?action=cart">
+                        <label>Quantité :</label>
+                        <input type="number" name="quantity" id="quantity" min="1" value="1" style="width: 4em">
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </div>
+            </div>
+        </article>
+    </section>
+<!--</div>-->

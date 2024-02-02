@@ -3,14 +3,16 @@ $metaTitle ="Commande N°";
 include('../resources/views/layouts/header.tpl.php');
 ?>
 
-cart.. et pas man.
+
 
 <?php
-var_dump($_post);
-$cart = $_post['nbArticle'];
-$cart = $_post['id'];
-var_dump($cart);
+$quantite = $_POST['nbArticle'];
+$id = $_POST['id'];
 ?>
+<div>
+    <p>id = <?=$id?></p>
+    <p>quantité = <?=$quantite?></p>
+</div>
 
 
 <?php

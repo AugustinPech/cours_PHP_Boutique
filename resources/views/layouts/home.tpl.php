@@ -3,14 +3,15 @@ $metaTitle = 'Hello World';
 include('../resources/views/layouts/header.tpl.php');
 ?>
 
-<?php if (empty($listProducts)): ?>
+<?php
+if (empty($listProducts)): ?>
     <p>Aucun article disponible pour le moment.</p>
 <?php else: ?>
     <section>
         <?php foreach ($listProducts as $article): ?>
             <a href="/?action=show&id=<?= $article['id']; ?>"
                style="text-decoration:none">
-            <article style = "text-align:center;border:1px solid black;">
+                <article style="text-align:center;border:1px solid black;">
 
                     <h2>
                         <?= $article['title']; ?>
@@ -19,7 +20,7 @@ include('../resources/views/layouts/header.tpl.php');
                     <img src="<?= $article['path_img'] ?>" style="width:10% "/>
                     <p><?= $article['ttc']; ?>€ TTC </p>
 
-            </article>
+                </article>
             </a>
         <?php endforeach; ?>
     </section>

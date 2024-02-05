@@ -2,7 +2,6 @@
 $metaTitle = ("Produit N°") . $id;
 include('../resources/views/layouts/header.tpl.php');
 ?>
-
 <?php if (empty($productId)): ?>
     <p>Aucun produit disponible pour le moment.</p>
 <?php else: ?>
@@ -34,8 +33,6 @@ include('../resources/views/layouts/header.tpl.php');
         </article>
     </section>
 <?php endif; ?>
-
-
 <?php
 include('../resources/views/layouts/footer.tpl.php');
 ?>

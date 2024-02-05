@@ -56,7 +56,7 @@ sequenceDiagram
     index.php->>cartController.php: include
     cartController.php->>cart.php: initCart($actionOnCart)
 
-    cartController.php->>cart.php: fillCart(productId, $quantite)
+    cartController.php->>cart.php: addToCart(productId, $quantite)
 	cartController.php->>cart.php: prices sorted by subTotalCart() totalCart()
 	    cart.php-->>index.php: redirect on emptyCart
     cartController.php->>cart.tpl.php: include

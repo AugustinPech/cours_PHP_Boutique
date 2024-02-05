@@ -7,7 +7,7 @@ $productId = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $quantite = (int)filter_input(INPUT_POST, 'quantite', FILTER_SANITIZE_NUMBER_INT);
 
 initCart($actionOnCart);
-fillcart($productId, $quantite);
+addToCart($productId, $quantite);
 if ($actionOnCart == 'Vider le panier') {
     header('Location: /');
 } elseif ($actionOnCart == 'Modifier le panier') { echo 'modification ici';

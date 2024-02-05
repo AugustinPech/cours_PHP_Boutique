@@ -1,6 +1,6 @@
 <?php
 
-function fillCart($productId, $quantite)
+function addToCart($productId, $quantite)
 {
     if (array_key_exists($productId, $_SESSION['cart']) && $quantite!==0) {
         $_SESSION['cart'][$productId] = $_SESSION['cart'][$productId] + $quantite;

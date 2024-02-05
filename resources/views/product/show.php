@@ -7,7 +7,7 @@
                 <p><?=$product["description"]?></p>
                 <div>
                     <div class="pb-3">Prix à l'unité : <?=$product["price"]?> €</div>
-                    <form method="post" action="/index.php?action=cart">
+                    <form action="/index.php?action=cart" method="post">
                         <label>Quantité :</label>
                         <input type="hidden" name="id" id="id" value="<?=$product['id']?>">
                         <input type="number" name="quantity" id="quantity" min="1" value="1" style="width: 4em">

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +18,7 @@ session_start();
 
 <body class="container d-flex flex-column">
 
-    <header class="row" height="">
+    <header class="row">
         <nav class="navbar navbar-expand-lg py-3">
             <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"></a>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -29,9 +27,14 @@ session_start();
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">A propos</a></li>
                     </ul>
                 </div>
-                <?php if ($_GET['action'] != 'cart'): ?>
-                <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
-                <?php endif;?>
+                <?php
+                if (!isset($_GET['action'])):?>
+                    <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
+                <?php else :
+                    if ($_GET['action'] != 'cart') :?>
+                        <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
+                    <?php endif;
+                endif;?>
             </div>
         </nav>
     </header>

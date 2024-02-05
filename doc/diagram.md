@@ -1,5 +1,5 @@
-#diagrammes liés au projet de site marchand
-##diagramme de la base de données
+# diagrammes liés au projet de site marchand
+## diagramme de la base de données
 ```mermaid
 erDiagram
     customers ||--o{ orders : places
@@ -45,4 +45,21 @@ erDiagram
 				int id
 				decimal taxeRate
 	}
+```
+## diagramme de la gestion du panier
+```mermaid
+sequenceDiagram
+
+	User->>productController.php: §?action=product
+	productController.php->>index.php: add to cart
+	    User->>index.php: ?action=cart
+    index.php->>cartController.php: include
+    cartController.php->>cart.php: initCart($actionOnCart)
+
+    cartController.php->>cart.php: fillCart(productId, $quantite)
+	cartController.php->>cart.php: prices sorted by subTotalCart() totalCart()
+	    cart.php-->>index.php: redirect on emptyCart
+    cartController.php->>cart.tpl.php: include
+    cartController.php->>cart.tpl.php: prices and info on cart
+    cart.tpl.php -->>User: info on cart
 ```

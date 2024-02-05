@@ -1,23 +1,23 @@
 <?php
 
-function fillCart($id, $quantite)
+function fillCart($productId, $quantite)
 {
-    if (array_key_exists($id, $_SESSION['cart']) && $quantite!==0) {
-        $_SESSION['cart'][$id] = $_SESSION['cart'][$id] + $quantite;
+    if (array_key_exists($productId, $_SESSION['cart']) && $quantite!==0) {
+        $_SESSION['cart'][$productId] = $_SESSION['cart'][$productId] + $quantite;
     } elseif ($quantite!==0) {
-        $_SESSION['cart'][$id]=$quantite;
+        $_SESSION['cart'][$productId]=$quantite;
     }
 }
-function initCart($emptyCart)
+function initCart($actionOnCart)
 {
     
-    if ($emptyCart == 'Vider le panier') {
+    if ($actionOnCart == 'Vider le panier' || !isset($_SESSION['cart']) || count($_SESSION['cart'])==0) {
         session_unset();
         $_SESSION['cart'] = [];
-    };
+    } else {$_SESSION['cart']=$_SESSION['cart'];};
 }
-function subTotalCart($pdo,$id,$quantite) {
-    $product=getDetailOfProduct($pdo,$id);
+function subTotalCart($pdo,$productId,$quantite) {
+    $product=getDetailOfProduct($pdo,$productId);
     $priceTTC=$product['priceTTC']*$quantite;
     $priceHT=$product['priceHT']*$quantite;
     $taxePrice=$product['taxePrice']*$quantite;
@@ -30,11 +30,11 @@ function subTotalCart($pdo,$id,$quantite) {
 }
 function totalCart($pdo,$cart)
 {
-    foreach ($cart as $id => $quantite) {
-        $product=getDetailOfProduct($pdo,$id);
-        $priceTTC[$id]=$product['priceTTC']*$quantite;
-        $priceHT[$id]=$product['priceHT']*$quantite;
-        $taxePrice[$id]=$product['taxePrice']*$quantite;
+    foreach ($cart as $productId => $quantite) {
+        $product=getDetailOfProduct($pdo,$productId);
+        $priceTTC[$productId]=$product['priceTTC']*$quantite;
+        $priceHT[$productId]=$product['priceHT']*$quantite;
+        $taxePrice[$productId]=$product['taxePrice']*$quantite;
     }
     ;
     $totalPrice= [

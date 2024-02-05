@@ -2,7 +2,6 @@
 echo '<br>-- productView';
 $metatitle = $product['title'];
 $metadescription = "$metatitle : ".$product['description'];
-var_dump($product);
 include '../ressources/views/layouts/head.tpl.php';
 include '../ressources/views/layouts/header.tpl.php';
 

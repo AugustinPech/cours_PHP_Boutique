@@ -46,19 +46,23 @@ erDiagram
 				decimal taxeRate
 	}
 ```
-## diagramme de la gestion du panier
 ```mermaid
 sequenceDiagram
 
-	User->>productController.php: §?action=product
-	productController.php->>index.php: add to cart
+	User->>productController.php: ?action=product
+	productController.php->>index.php: ?action=addToCart
+	index.php ->> addToCartController.php:include
+	addToCartController.php->>cart.php: addToCart()
+	addToCartController.php->>cartController.php:redirect
 	    User->>index.php: ?action=cart
     index.php->>cartController.php: include
-    cartController.php->>cart.php: initCart($actionOnCart)
-
-    cartController.php->>cart.php: addToCart(productId, $quantite)
+    cartController.php->>cart.php: initCart()
+    cartController.php->>cart.php: fillCart(productId, $quantite)
 	cartController.php->>cart.php: prices sorted by subTotalCart() totalCart()
-	    cart.php-->>index.php: redirect on emptyCart
+	    cartController.php-->> index.php: ?action=emptyCart
+		index.php->>emptyCartController.php: include
+		emptyCartController.php->> cart.php : emptyCart()
+		emptyCartController.php->index.php: redirect
     cartController.php->>cart.tpl.php: include
     cartController.php->>cart.tpl.php: prices and info on cart
     cart.tpl.php -->>User: info on cart

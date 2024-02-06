@@ -46,24 +46,36 @@ erDiagram
 				decimal taxeRate
 	}
 ```
+## diagramme de la gestion du panier
 ```mermaid
 sequenceDiagram
 
 	User->>productController.php: ?action=product
-	productController.php->>index.php: ?action=addToCart
-	index.php ->> addToCartController.php:include
-	addToCartController.php->>cart.php: addToCart()
-	addToCartController.php->>cartController.php:redirect
-	    User->>index.php: ?action=cart
+		productController.php-->>index.php: ?action=addToCart
+		index.php ->> addToCartController.php:include
+		addToCartController.php->>cart.php: addToCart()
+		addToCartController.php->>index.php:?action=cart
+	User->>index.php: ?action=cart
     index.php->>cartController.php: include
     cartController.php->>cart.php: initCart()
     cartController.php->>cart.php: fillCart(productId, $quantite)
 	cartController.php->>cart.php: prices sorted by subTotalCart() totalCart()
-	    cartController.php-->> index.php: ?action=emptyCart
-		index.php->>emptyCartController.php: include
-		emptyCartController.php->> cart.php : emptyCart()
-		emptyCartController.php->index.php: redirect
+	
+	cartController.php-->> index.php: ?action=emptyCart
+	index.php->>emptyCartController.php: include
+	emptyCartController.php->> cart.php : emptyCart()
+	emptyCartController.php->>index.php: ?action=cart
+	
+	cartController.php-->> index.php: ?action=modifyCart
+		 index.php ->> modifyCartController.php: include
+	cart.php->>modifycart.php: modifyCart()
+	modifycart.php->>index.php: ?action=cart
+	
+	cartController.php-->> index.php: ?action=deleteProductFromCart
+	 index.php ->> deleteProductFromCartController.php: include
+	 cart.php->>deleteProductFromCartController.php: deleteProductFromCart()
+	 deleteProductFromCartController.php->>index.php:?action=cart
+	 
     cartController.php->>cart.tpl.php: include
-    cartController.php->>cart.tpl.php: prices and info on cart
-    cart.tpl.php -->>User: info on cart
+    cart.tpl.php -->>User: prices and info on cart
 ```

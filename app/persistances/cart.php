@@ -22,11 +22,14 @@ function modifyCart($newCart)
 {
     foreach ($newCart as $productId => $quantity) {
         if ($newCart[$productId] == 0) {
-            unset($_SESSION['cart'][array_search($_SESSION['cart'][$productId], $_SESSION['cart'])]);
+            deleteProductFromCart($productId);
         } else {
             $_SESSION['cart'][$productId] = $quantity;
         }
     }
+}
+function deleteProductFromCart($productId) {
+    unset($_SESSION['cart'][array_search($_SESSION['cart'][$productId], $_SESSION['cart'])]);
 }
 function subTotalCart($pdo, $productId, $quantite)
 {
@@ -56,3 +59,11 @@ function totalCart($pdo, $cart)
     ];
     return $totalPrice;
 }
+function priceById($pdo)
+{
+    foreach ($_SESSION['cart'] as $productId => $quantite) {
+        $priceById[$productId] = subTotalCart($pdo, $productId, $quantite);
+    }
+    return $priceById;
+}
+

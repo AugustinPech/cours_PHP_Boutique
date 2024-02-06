@@ -36,7 +36,8 @@ include '../ressources/views/layouts/header.tpl.php';
                         (<?= getDetailOfProduct($pdo, $productId)['priceHT'] ?>) <?= getDetailOfProduct($pdo, $productId)['priceTTC'] ?> €
                     </td>
                     <td>
-                        <input class="col-6" name= "<?= $productId ?>" type="number" min="0" max="<?= getDetailOfProduct($pdo, $productId)['stock'] ?>" value="<?= $_SESSION['cart'][$productId] ?>">
+                        <input class="col-4" name= "<?= $productId ?>" type="number" min="0" max="<?= getDetailOfProduct($pdo, $productId)['stock'] ?>" value="<?= $_SESSION['cart'][$productId] ?>">
+                        <a class=" mx-1 btn btn-danger" href="/?action=deleteProductFromCart&id=<?= $productId ?>"> X </a>
                     </td>
                     <td>(<?= $priceById[$productId]['HT'] ?>) <?= $priceById[$productId]['TTC'] ?> €</td>
                 </tr>

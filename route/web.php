@@ -19,6 +19,7 @@ $routes = [
     'modifyCart'=> '../app/controllers/modifyCartController.php',
     'emptyCart'=> '../app/controllers/emptyCartController.php',
     'validateCart'=> '../app/controllers/validateCartController.php',
+    'deleteProductFromCart'=>'../app/controllers/deleteProductFromCartController.php',
 ];
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);

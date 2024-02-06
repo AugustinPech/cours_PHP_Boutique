@@ -18,3 +18,15 @@ function getDetailOfProduct($pdo, $productId) {
     $oneDetailedProduct = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $oneDetailedProduct[0];
 }
+function setNumberOfProductViews($askForMoreOrLessProducts) {
+setcookie('count', 1, time() + 60);
+$cookieCount = filter_input(INPUT_COOKIE, 'count', FILTER_SANITIZE_SPECIAL_CHARS);
+if ($askForMoreOrLessProducts == 'Afficher Plus de Produits') {
+    $count = $cookieCount + 1;
+} elseif ($askForMoreOrLessProducts == 'Afficher Moins de Products') {
+    $count = (($cookieCount  - 1) >= 0) ? ($cookieCount  - 1) : 0;
+} else {
+    $count = 0;
+}
+setcookie('count', $count, time() + 60);
+return 4 + 4 * $count; }

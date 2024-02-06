@@ -21,7 +21,7 @@
     <nav>
         <a href="/?action=home">Home page</a>
         <a href="/?action=cart">Chariot</a>
-        <a><input href="<?session_destroy()?>" type="button" value="fin de session"></a>
+        <a href="/?action=destroy" ><input type="button" value="fin de session"></a>
     </nav>
 </section>
 </body>

@@ -9,7 +9,7 @@ include('../resources/views/layouts/header.tpl.php');
         <article>
             <form action="/?action=cart" method="POST" class="ajoutAuPanier">
                 <h2>
-                    <a> Produit : <?= $productId['title']; ?></a>
+                    <p> Produit : <?= $productId['title']; ?></p>
                 </h2>
                 <p>Catégorie : <?= $productId['name']; ?> - Plus que <?= $productId['stock']; ?> en stock. Poids
                     : <?= $productId['weight']; ?> kilos.</p>

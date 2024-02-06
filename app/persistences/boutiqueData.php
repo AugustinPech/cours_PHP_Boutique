@@ -10,7 +10,7 @@ function products($PDO, $nbproducts)
     } catch (PDOException $e) {
         die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
     }
-};
+}
 
 function productsid($PDO, $id)
 {
@@ -22,4 +22,6 @@ function productsid($PDO, $id)
     } catch (PDOException $e) {
         die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
     }
-};
+}
+
+

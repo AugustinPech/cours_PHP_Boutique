@@ -11,6 +11,7 @@ include('../resources/views/layouts/header.tpl.php');
                 <h2>
                     <p> Produit : <?= $productId['title']; ?></p>
                 </h2>
+                <img src="<?=$productId['path_img']?>"">
                 <p>Catégorie : <?= $productId['name']; ?> - Plus que <?= $productId['stock']; ?> en stock. Poids
                     : <?= $productId['weight']; ?> kilos.</p>
                 <p>Déscription : <?= $productId['description']; ?></p>
@@ -20,7 +21,6 @@ include('../resources/views/layouts/header.tpl.php');
                 <p>HT = <?= $productId['ht']; ?>€ + TVA = <?= $productId['tva']; ?>€ = <?= $productId['ttc']; ?>€
                     TTC </p>
                 <?php if ($productId['stock'] > 0) : ?>
-
                 <label for="nombreArticle">Quantité </label>
                 <input type="number" id="nombreArticle" name="nbArticle" class="nombreArticle" min="1"
                        max="<?= $productId['stock']; ?>" value="1"/>

@@ -19,7 +19,6 @@ if (empty($listProducts)): ?>
                     <p>Catégorie : <?= $article['name']; ?> - Plus que <?= $article['stock']; ?> en stock.</p>
                     <img src="<?= $article['path_img'] ?>" style="width:10% "/>
                     <p><?= $article['ttc']; ?>€ TTC </p>
-
                 </article>
             </a>
         <?php endforeach; ?>

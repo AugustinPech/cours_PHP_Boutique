@@ -30,7 +30,6 @@ include '../ressources/views/layouts/header.tpl.php';
         <form method="post">
             <input type="submit" name="moreOrLessProducts" class="btn btn-dark" value="Afficher Plus de Produits" />
             <input type="submit" name="moreOrLessProducts" class="btn btn-dark" value="Afficher Moins de Produits" />
-            <!-- <a href="<?php echo "/index.php?action=productCreate"; ?>" class="btn btn-dark">Submit new Article</a> -->
 
         </form>
     </div>

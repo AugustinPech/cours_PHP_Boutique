@@ -26,7 +26,7 @@ include '../ressources/views/layouts/header.tpl.php';
                 </div>
                 <div class="col-5" >
                     <?php if ($product['stock']>0) :?>
-                        <form class="d-flex flex-column flex-lg-row justify-content-around" method="post" action="/?action=cart&id=<?php echo $product['id']; ?>">
+                        <form class="d-flex flex-column flex-lg-row justify-content-around" method="post" action="/?action=addToCart&id=<?php echo $product['id']; ?>">
                             <div><label class="" for="quantite">Quantité</label>
                             <input class="col-5" name= "quantite" type="number" min="1" value="1"></div>
                             <input class="btn btn-dark" type="submit" name="" value="Ajouter au panier"/>

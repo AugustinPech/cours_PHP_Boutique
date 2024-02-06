@@ -3,18 +3,21 @@
 function addToCart($productId, $quantite)
 {
     if (array_key_exists($productId, $_SESSION['cart']) && $quantite!==0) {
-        $_SESSION['cart'][$productId] = $_SESSION['cart'][$productId] + $quantite;
-    } elseif ($quantite!==0) {
+        $_SESSION['cart'][$productId] +=  $quantite;
+    }
+    elseif ($quantite!==0) {
         $_SESSION['cart'][$productId]=$quantite;
     }
 }
-function initCart($actionOnCart)
+function initCart()
 {
-    
-    if ($actionOnCart == 'Vider le panier' || !isset($_SESSION['cart']) || count($_SESSION['cart'])==0) {
-        session_unset();
+    if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
-    } else {$_SESSION['cart']=$_SESSION['cart'];};
+    };
+}
+function emptyCart()
+{
+    $_SESSION['cart'] = [];
 }
 function subTotalCart($pdo,$productId,$quantite) {
     $product=getDetailOfProduct($pdo,$productId);

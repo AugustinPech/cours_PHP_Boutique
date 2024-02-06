@@ -5,7 +5,7 @@ $metadescription = 'Affiche le contenu du panier';
 include '../ressources/views/layouts/head.tpl.php';
 include '../ressources/views/layouts/header.tpl.php';
 ?>
-<main class="d-flex flex-column justify-content-center align-items-center mx-5">
+<main class="mx-5">
     <table class="table table-striped table-hover" style="text-align:center ; vertical-align:middle">
         <thead>
             <tr>
@@ -14,39 +14,51 @@ include '../ressources/views/layouts/header.tpl.php';
                     <p>Prix unitaire</p>
                     <p> (HT) TTC €</p>
                 </th>
-                <th scope="col" style="width:10%">Quantité</th>
+                <th scope="col" style="width:10% ; vertical-align:middle">Quantité</th>
                 <th scope="col" style="width:10%">
                     <p> Total</p>
                     <p> (HT) TTC €</p>
                 </th>
             </tr>
         </thead>
-        <?php foreach ($priceById as $key => $value) : ?>
-            <tr>
-                <td style="width:20%"><img src="img/product.avif" alt="product" class="col-4"></td>
-                <td style="text-align:left"><a href="/?action=product&id=<?php echo $key; ?>">
-                        <h6><?= getDetailOfProduct($pdo, $key)['title'] ?></h6>
-                    </a></td>
-                <td>(<?= getDetailOfProduct($pdo, $key)['priceHT'] ?>) <?= getDetailOfProduct($pdo, $key)['priceTTC'] ?> €</td>
-                <td><?= $_SESSION['cart'][$key] ?></td>
-                <td>(<?= $priceById[$key]['HT'] ?>) <?= $priceById[$key]['TTC'] ?> €</td>
-            </tr>
-        <?php endforeach; ?>
-        <tr>
-            <td colspan="4" style="text-align: right">
-                <b>Total = </b>
-            </td>
-            <td style="text-align: center">( <?= $totalCartInfo['HT']; ?> ) <?= $totalCartInfo['TTC']; ?> €
-            </td>
-        </tr>
-    </table>
+        <?php if (array_sum($_SESSION['cart']) > 0) : foreach ($priceById as $key => $value) : ?>
+                <tr>
+                    <td style="width:20%"><img src="img/product.avif" alt="product" class="col-4"></td>
+                    <td style="text-align:left"><a href="/?action=product&id=<?php echo $key; ?>">
+                            <h6><?= getDetailOfProduct($pdo, $key)['title'] ?></h6>
+                        </a></td>
+                    <td>(<?= getDetailOfProduct($pdo, $key)['priceHT'] ?>) <?= getDetailOfProduct($pdo, $key)['priceTTC'] ?> €</td>
+                    <td><?= $_SESSION['cart'][$key] ?></td>
+                    <td>(<?= $priceById[$key]['HT'] ?>) <?= $priceById[$key]['TTC'] ?> €</td>
+                </tr>
+            <?php endforeach; ?>
+                <tr>
+                    <td colspan=" 4" style="text-align: right">
+                        <b>Total = </b>
+                    </td>
+                    <td style="text-align: center">( <?= $totalCartInfo['HT']; ?> ) <?= $totalCartInfo['TTC']; ?> €
+                    </td>
+                </tr>
+            <?php else : ?>
+                <tr>
+                    <th scope="col" colspan="5" style="width:100%;text-align:center ; vertical-align:middle""> - - Panier Vide - - </th>
+                </tr>
+                <tr>
+                    <td colspan=" 4" style="text-align: right">
+                        <b>Total = </b>
+                    </td>
+                    <td style="text-align: center">( 0 ) 0.00 €
+                    </td>
+                </tr>
+            <?php endif; ?>
 
-    <form class="d-flex flex-row justify-content-end col-12" method="post" action="/?action=cart" id="actionOnCart">
-        <button class="mx-1 btn btn-danger" type="submit" name="actionOnCart" value="Vider le panier"> Vider le panier</button>
-        <button class="mx-1 btn btn-primary" type="submit" name="actionOnCart" value="Modifier le panier">Modifier le panier</button>
-        <button class="mx-1 btn btn-success" type="submit" name="actionOnCart" value="Valider le panier">Valider le panier</button>
-    </form>
-<div class="h-100"><?php var_dump($_POST); var_dump($actionOnCart);?></div>
+    </table>
+    <div class=" d-flex flex-row justify-content-end ">
+        <a class=" mx-1 btn btn-secondary" href="/?action=emptyCart"> Vider le panier</a>
+        <a class=" mx-1 btn btn-danger" href="/?action=Accueil"> Continuer les achats</a>
+        <a class="mx-1 btn btn-primary" href="/?action=modifyCart">Modifier le panier</a>
+        <a class="mx-1 btn btn-success" href="/?action=validateCart">Valider le panier</a>
+    </div>
 </main>
 <?php
 include '../ressources/views/layouts/footer.tpl.php';

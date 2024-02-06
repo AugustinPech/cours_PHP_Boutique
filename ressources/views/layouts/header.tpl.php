@@ -1,8 +1,6 @@
   <header id="header">
-    <!-- <img src="img/bandeau.avif" alt="bandeau"> -->
     <nav class="navbar navbar-expand-md">
       <div class="container-fluid">
-        <!-- set our "brand" box with the logo of our brand -->
         <a class="navbar-brand" href="/">
           <img class="col-4" src="img/Logo.png" alt="Logo ForKIT">
         </a>
@@ -23,28 +21,17 @@
             <li class="nav-item">
               <a class="nav-link disabled" href="">Boutique</a>
             </li>
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Les CVs de notre équipe
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="andrea.html">Andrea Thouvenot</a></li>
-                <li><a class="dropdown-item" href="axel.html">Axel Poty</a></li>
-                <li><a class="dropdown-item" href="jonathan.html">Jonathan Luscap</a></li>
-                <li><a class="dropdown-item" href="augustin.html">Augustin Pech</a></li>
-              </ul>
-            </li> -->
           </ul>
           <div class="d-flex gap-2">
             <a href="/?action=contact" class="btn btn-light">Contactez nous</a>
-            <!-- <a href="AAJA HTML-CSS/pages/intranet.html" class="btn btn-primary ml-2">Sign in</a> -->
-            <a href="" class="btn btn-primary ml-2">Sign in</a>
+            <a href="/?action=cart" class="btn btn-light">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
+              </svg>
+              <?= isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0 ;?>
+            </a>
           </div>
-          <!-- search bar is not a feature yet
-                                <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                              </form> -->
+
         </div>
       </div>
     </nav>

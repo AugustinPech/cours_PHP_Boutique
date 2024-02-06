@@ -15,6 +15,10 @@ $routes = [
     'contact' => '../app/controllers/contactController.php',
     'cart' => '../app/controllers/cartController.php',
     '404' => '../ressources/views/errors/404.php',
+    'addToCart'=> '../app/controllers/addToCartController.php',
+    'modifyCart'=> '../app/controllers/modifyCartController.php',
+    'emptyCart'=> '../app/controllers/emptyCartController.php',
+    'validateCart'=> '../app/controllers/validateCartController.php',
 ];
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);

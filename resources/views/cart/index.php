@@ -7,7 +7,7 @@
     <h4 class="col-2">Total</h4>
 </aside>
 <div class="container">
-    <form action="" name="">
+    <form action="/index.php?action=cart" method="post">
         <?php
         if (isset($_SESSION['cart'][0])):
             foreach ($cart as $cartLine):?>
@@ -25,7 +25,7 @@
                         <p><?=$cartLine['price']?> €</p>
                     </div>
                     <div class="col-2 m-auto">
-                        <p><?=$cartLine['quantity']?></p>
+                        <input type="number" name="<?=$cartLine['id']?>" value="<?=$cartLine['quantity']?>" style="width: 4em"></input>
                     </div>
                     <div class="col-2 m-auto">
                         <p class="text-right"><?=$cartLine['price']*$cartLine['quantity']?> €</p>
@@ -35,6 +35,14 @@
             <div class="row justify-content-end border">
                 <div class="col-1">=</div>
                 <div class="col-2 text-right"><?=$_SESSION['myCartAmount']['total']?> €</div>
+            </div>
+            <div class="row justify-content-between border p-3">
+                <div class="col-2">
+                    <input type="submit" name="modify" value="Modifier mon panier">
+                </div>
+                <div class="col-2">
+                    <input type="submit" name="validate" value="Valider mon panier">
+                </div>
             </div>
         <?php else: ?>
             <p>Votre panier est vide.</p>

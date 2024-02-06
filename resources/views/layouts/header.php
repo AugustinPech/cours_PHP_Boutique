@@ -29,17 +29,24 @@
                 </div>
                 <div class="row">
                 <?php
-                if (!isset($_GET['action'])):?>
-                    <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Mon panier</a></div>
-                <?php else :
+                if (!isset($_GET['action'])):
                     if ($_GET['action'] != 'cart') :
                         if (isset($_SESSION['myCartAmount'])):?>
                             <div>
                                 <p><?=$_SESSION['myCartAmount']['nbItem']?> produit(s) : <?=$_SESSION['myCartAmount']['total']?> €</p>
                             </div>
                         <?php endif;?>
-                        <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Voir mon panier</a></div>
-                    <?php endif;
+                        <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Mon panier</a></div>
+                    <?php else :
+                        if ($_GET['action'] != 'cart') :
+                            if (isset($_SESSION['myCartAmount'])):?>
+                                <div>
+                                    <p><?=$_SESSION['myCartAmount']['nbItem']?> produit(s) : <?=$_SESSION['myCartAmount']['total']?> €</p>
+                                </div>
+                            <?php endif;?>
+                            <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Voir mon panier</a></div>
+                        <?php endif;
+                        endif;
                 endif;?>
                 </div>
             </div>

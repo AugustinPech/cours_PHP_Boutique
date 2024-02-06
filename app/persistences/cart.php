@@ -101,3 +101,7 @@ function makeCart($pdo, $sessionCart){
     }
     return $cart;
 }
+
+//function updateCart($cart, $){
+//
+//}

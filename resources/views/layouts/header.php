@@ -27,14 +27,21 @@
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">A propos</a></li>
                     </ul>
                 </div>
+                <div class="row">
                 <?php
                 if (!isset($_GET['action'])):?>
-                    <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
+                    <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Mon panier</a></div>
                 <?php else :
-                    if ($_GET['action'] != 'cart') :?>
-                        <div class="navbar-link"><a href="/index.php?action=cart" >Mon panier</a></div>
+                    if ($_GET['action'] != 'cart') :
+                        if (isset($_SESSION['myCartAmount'])):?>
+                            <div>
+                                <p><?=$_SESSION['myCartAmount']['nbItem']?> produit(s) : <?=$_SESSION['myCartAmount']['total']?> €</p>
+                            </div>
+                        <?php endif;?>
+                        <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Voir mon panier</a></div>
                     <?php endif;
                 endif;?>
+                </div>
             </div>
         </nav>
     </header>

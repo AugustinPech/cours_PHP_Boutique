@@ -20,8 +20,9 @@ function productByCategory(PDO $pdoConnection, $categoryId){
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAllProducts(PDO $pdoConnection){
-    $statement = $pdoConnection->query("SELECT p.id, p.name, p.allTaxesIncludedPrice AS price, p.stock
-                        FROM products p");
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+function categoryById(PDO $pdoConnection, $id){
+    $statement = $pdoConnection->query("SELECT c.name
+                        FROM categories c
+                        WHERE c.id = $id");
+    return $statement->fetch(PDO::FETCH_ASSOC);
 }

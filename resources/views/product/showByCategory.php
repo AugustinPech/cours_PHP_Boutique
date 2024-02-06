@@ -2,7 +2,7 @@
 ?>
 
 <section class="row">
-    <h2>Categories</h2>
+    <h2>Nos <?=$category['name']?> :</h2>
     <?php foreach ($wholeCategory as $key => $product) : ?>
         <div class="col">
             <img src="https://placehold.co/120x120" alt="photo du produit : <?=$product["name"]?>" width="120">

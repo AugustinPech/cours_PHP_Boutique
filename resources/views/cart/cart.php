@@ -7,13 +7,18 @@ include('../resources/views/layouts/header.tpl.php');
 
             <article>
                 <h1>
-                    id : <?= $product['id'] ?>
+                    Ref : <?= $product['id'] ?> <?= $productId['title']; ?>
                 </h1>
                 <p>
                     Qté : <input type="number"
                                  id="nombreArticle"
                                  name="nbArticle" class="nombreArticle" min="1"
-                                 max="<?= $productId['stock']; ?>" value="<?= $product['nbArticle'] ?>"/>
+                                 max="100" value="<?= $product['nbArticle'] ?>"/>
+                </p>
+
+                <p>
+<?php echo $productId?>
+<?php var_dump($_SESSION)?>
                 </p>
             </article>
         <?php } ?>

@@ -2,7 +2,7 @@
 include '../config/database.php';
 include '../app/persistences/boutiqueData.php';
 include '../resources/views/layouts/header.php';
-include '../resources/views/layouts/footer.php';
+
 
 
 $action = filter_input(INPUT_GET, 'action',FILTER_SANITIZE_SPECIAL_CHARS);
@@ -26,9 +26,9 @@ switch ($action) {
         break;
 
 
-//    case "" :
-//        require '../app/controllers/NOMDUCONTROLLER';
-//        break;
+    case "deleteCart" :
+        require '../app/controllers/deleteCartController.php';
+        break;
 //
 //    case "" :
 //        require '../app/controllers/NOMDUCONTROLLER';
@@ -40,3 +40,6 @@ switch ($action) {
 
 
 }
+
+
+include '../resources/views/layouts/footer.php';

@@ -1,3 +1,6 @@
-<?php
-echo "viewsCart";
-var_dump($_POST);
+
+
+
+
+
+<a href ='/?action=deleteCart'><button>Effacer les données du panier</button></a>

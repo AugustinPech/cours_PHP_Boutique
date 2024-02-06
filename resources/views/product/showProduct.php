@@ -14,7 +14,7 @@ foreach ($infoSpecificProduct as $value) : ?>
 
 <form action = "/?action=cart" method ="post">
 
-
+    <input type="hidden" name="id" value="<?= $value ['id'] ?>">
     <input type="number" name="quantity">
     <input type="submit" value="Ajouter au panier">
 
@@ -22,14 +22,3 @@ foreach ($infoSpecificProduct as $value) : ?>
 </form>
 
 <?php endforeach ?>
-
-<?php
-echo "eheheh";
-if (!empty($_POST)){
-    var_dump ($_POST);
-}
-var_dump ($_POST)
-
-
-
-//php var_dump($infoProduct); ?>

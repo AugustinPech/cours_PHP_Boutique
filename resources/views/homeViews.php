@@ -1,4 +1,4 @@
-<?= "homeViews -->";
+<?php
 
 
 foreach ($infoProduct as $value) : ?>

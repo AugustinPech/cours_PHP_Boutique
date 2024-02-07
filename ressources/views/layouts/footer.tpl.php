@@ -44,6 +44,6 @@
   <div class="text-center">© 2023 -
     <script>
       document.write(new Date().getFullYear());
-    </script> AAJA s.a.s. All Rights Reserved
+    </script> ForKIT s.a.s. All Rights Reserved
   </div>
 </footer>

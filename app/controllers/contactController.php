@@ -1,2 +1,2 @@
 <?php
-echo '<br>- contactController';
+if ($debugModeOnOff) { echo '<br>- contactController';}

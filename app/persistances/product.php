@@ -1,5 +1,6 @@
 <?php
-function getNumberOfProducts($pdo, $numberOfProducts) {
+function getNumberOfProducts($pdo, $numberOfProducts)
+{
     $query = "select * from products order by priceTTC limit $numberOfProducts";
 
     $statement = $pdo->query($query);
@@ -7,7 +8,8 @@ function getNumberOfProducts($pdo, $numberOfProducts) {
     return $outputNumberOfProducts;
 }
 
-function getDetailOfProduct($pdo, $productId) {
+function getDetailOfProduct($pdo, $productId)
+{
     $query = "select products.id, title, description, weight, taxePrice, priceHT, priceTTC, stock, categories.name as categorie, taxes.taxeRate
     from products
     inner join categories on categories.id=categories_id
@@ -18,15 +20,24 @@ function getDetailOfProduct($pdo, $productId) {
     $oneDetailedProduct = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $oneDetailedProduct[0];
 }
-function setNumberOfProductViews($askForMoreOrLessProducts) {
-setcookie('count', 1, time() + 60);
-$cookieCount = filter_input(INPUT_COOKIE, 'count', FILTER_SANITIZE_SPECIAL_CHARS);
-if ($askForMoreOrLessProducts == 'Afficher Plus de Produits') {
-    $count = $cookieCount + 1;
-} elseif ($askForMoreOrLessProducts == 'Afficher Moins de Products') {
-    $count = (($cookieCount  - 1) >= 0) ? ($cookieCount  - 1) : 0;
-} else {
-    $count = 0;
+function setNumberOfProductViews($askForMoreOrLessProducts)
+{
+    
+    $cookieCount = isset($_COOKIE) ? filter_input(INPUT_COOKIE, 'count', FILTER_SANITIZE_SPECIAL_CHARS): 1;
+    if ($askForMoreOrLessProducts == 'Afficher Plus de Produits') {
+        $count = $cookieCount + 1;
+    } elseif ($askForMoreOrLessProducts == 'Afficher Moins de Produits') {
+        $count = ($cookieCount > 1) ? ($cookieCount  - 1) : 1;
+    } else {
+        $count = 1;
+    }
+    setcookie('count', $count, time() + 60);
+    return  4 * $count;
 }
-setcookie('count', $count, time() + 60);
-return 4 + 4 * $count; }
+function getAllCustomers($pdo) {
+    $query = "select * from customers";
+
+    $statement = $pdo->query($query);
+    $allCustomers = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $allCustomers;
+}

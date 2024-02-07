@@ -1,5 +1,5 @@
 <?php
-echo '<br>- Homecontroller';
+if ($debugModeOnOff) { echo '<br>- Homecontroller';}
 
 // Part 1
 // ----- Gestion du nombre d'objet à afficher

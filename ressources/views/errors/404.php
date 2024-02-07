@@ -1,4 +1,5 @@
 <?php
+if ($debugModeOnOff) {echo '-404 view.php';}
 header('HTTP/1.0 404 Not Found');
 $metatitle='404 Error - Not Found';
 $metadescription= 'La page demandée n existe pas';

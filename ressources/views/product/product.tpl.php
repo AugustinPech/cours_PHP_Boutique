@@ -1,5 +1,5 @@
 <?php
-echo '<br>-- productView';
+if ($debugModeOnOff) { echo '<br>-- productView';}
 $metatitle = $product['title'];
 $metadescription = "$metatitle : ".$product['description'];
 include '../ressources/views/layouts/head.tpl.php';

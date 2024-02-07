@@ -1,11 +1,9 @@
 <?php
-echo '<br>- cartController';
-
+if ($debugModeOnOff) { echo '<br>- cartController';}
 initCart();
 
-
-if (array_sum($_SESSION['cart']) > 0) {
+if (testIfNotEmpty() > 0) {
     $totalCartInfo = totalCart($pdo, $_SESSION['cart']);
-    $priceById=priceById($pdo);
+    $subTotalByProductId=subTotalPriceById($pdo);
 }
 include '../ressources/views/cart/cart.tpl.php';

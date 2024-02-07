@@ -1,5 +1,5 @@
 <?php
-echo '<br>-- cartView';
+if ($debugModeOnOff) { echo '<br>-- cartView';}
 $metatitle = 'cart';
 $metadescription = 'Affiche le contenu du panier';
 include '../ressources/views/layouts/head.tpl.php';
@@ -24,7 +24,8 @@ include '../ressources/views/layouts/header.tpl.php';
                 </th>
             </tr>
         </thead>
-        <?php if (array_sum($_SESSION['cart']) > 0) : foreach ($priceById as $productId => $price) : ?>
+        <?php if (testIfNotEmpty() > 0) :
+            foreach ($_SESSION['cart'] as $productId => $info) : ?>
                 <tr>
                     <td style="width:20%">
                         <img src="img/product.avif" alt="product" class="col-4">
@@ -36,10 +37,10 @@ include '../ressources/views/layouts/header.tpl.php';
                         (<?= getDetailOfProduct($pdo, $productId)['priceHT'] ?>) <?= getDetailOfProduct($pdo, $productId)['priceTTC'] ?> €
                     </td>
                     <td>
-                        <input class="col-4" name= "<?= $productId ?>" type="number" min="0" max="<?= getDetailOfProduct($pdo, $productId)['stock'] ?>" value="<?= $_SESSION['cart'][$productId] ?>">
+                        <input class="col-4" name= "<?= $productId ?>" type="number" min="0" max="<?= getDetailOfProduct($pdo, $productId)['stock'] ?>" value="<?= $_SESSION['cart'][$productId]['quantite'] ?>">
                         <a class=" mx-1 btn btn-danger" href="/?action=deleteProductFromCart&id=<?= $productId ?>"> X </a>
                     </td>
-                    <td>(<?= $priceById[$productId]['HT'] ?>) <?= $priceById[$productId]['TTC'] ?> €</td>
+                    <td>(<?= $subTotalByProductId[$productId]['subTotalHT'] ?>) <?= $subTotalByProductId[$productId]['subTotalTTC'] ?> €</td>
                 </tr>
             <?php endforeach; ?>
                 <tr>
@@ -66,7 +67,7 @@ include '../ressources/views/layouts/header.tpl.php';
     </form>
     <div class=" d-flex flex-row justify-content-end ">
         <a class=" mx-1 btn btn-secondary" href="/?action=emptyCart"> Vider le panier</a>
-        <a class=" mx-1 btn btn-danger" href="/?action=Accueil"> Continuer les achats</a>
+        <a class=" mx-1 btn btn-danger" href="/?action=Accueil"> Continuer mes achats</a>
         <button class="mx-1 btn btn-primary" type="submit" form="modify" value="submit">Modifier le panier</button>
         <a class="mx-1 btn btn-success" href="/?action=validateCart">Valider le panier</a>
     </div>

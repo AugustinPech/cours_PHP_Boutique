@@ -1,5 +1,5 @@
 <?php
-echo '<br>-- HomeView';
+if ($debugModeOnOff) { echo '<br>-- HomeView';}
 $metatitle = 'ForKIT Home Page';
 $metadescription = 'Home - Affiche le catalogue de produits';
 include '../ressources/views/layouts/head.tpl.php';

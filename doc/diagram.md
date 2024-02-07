@@ -67,7 +67,7 @@ sequenceDiagram
 	emptyCartController.php->>index.php: ?action=cart
 	
 	cartController.php-->> index.php: ?action=modifyCart
-		 index.php ->> modifyCartController.php: include
+	index.php ->> modifyCartController.php: include
 	cart.php->>modifycart.php: modifyCart()
 	modifycart.php->>index.php: ?action=cart
 	
@@ -78,4 +78,16 @@ sequenceDiagram
 	 
     cartController.php->>cart.tpl.php: include
     cart.tpl.php -->>User: prices and info on cart
+```
+## diagramme de la validation du panier
+```mermaid
+sequenceDiagram
+
+	User->>index.php:?action=validateCart
+    index.php->>validateCartController.php: include
+    validateCartController.php->>cart.php: validateCart($cart)
+		cart.php->>BDD :verifyStock($pdo, $cart)
+		cart.php->>BDD :createOrder($pdo)
+		validateCartController.php->>validateCart.tpl.php: include
+    validateCart.tpl.php -->>User: prices and info on Order
 ```

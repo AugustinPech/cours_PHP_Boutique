@@ -10,12 +10,9 @@ if (!is_null($debugModeOnOff)) {
 
 if ($debugModeOnOff) {echo ' - web.php';}
 
-// Part 1
-// ----- Ouverture de la session
-session_start();
-// End Part 1
 
-// Part 2
+
+// Part 1
 // ----- Gestion des routes
 $routes = [
     'Accueil' => '../app/controllers/homeController.php',
@@ -34,7 +31,7 @@ $routes = [
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
 $action = isset($action) ? (array_key_exists($action, $routes) ? $action : '404') : 'Accueil';
 include $routes[$action];
-// End Part 2
+// End Part 1
 
 //debug
 if ($debugModeOnOff) {var_dump($_SESSION);}

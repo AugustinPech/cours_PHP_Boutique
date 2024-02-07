@@ -29,10 +29,10 @@ switch ($action) {
     case "deleteCart" :
         require '../app/controllers/deleteCartController.php';
         break;
-//
-//    case "" :
-//        require '../app/controllers/NOMDUCONTROLLER';
-//        break;<
+
+    case "updateCart" :
+        require '../app/controllers/updateCartController.php';
+        break;
     default :
         require '../resources/views/errors/404.php';
 

@@ -1,14 +1,10 @@
 <?php
 
 
-
-function unsetSession (){
+function unsetSession()
+{
     unset($_SESSION['cart']);
 }
-
-
-
-
 
 
 function getInfoProductById(PDO $MyPDO, $id)
@@ -57,31 +53,31 @@ function addProduct($id, $quantity)
 function totalCart($MyPDO)
 {
     $totalPrice = 0;
-    $totalProducts = 0;
-
     $totalProducts = count($_SESSION['cart']);
 
-//    foreach ($_SESSION['cart'] as $idQuantity) {
-//        $totalProducts = $totalProducts + 1;
-//
-//    }
-//    echo $_SESSION['cart']['quantité'];
     foreach ($_SESSION['cart'] as $productID => $quantity) {
         $productPrice = getInfoProductById($MyPDO, $productID);
         $totalPrice = $totalPrice + ($productPrice['priceTTC'] * $quantity);
     }
 
 
-//    echo "=====================================>";
-//    echo 'total', $totalProducts;
     $_SESSION['totalCart'] = array('totalPrice' => $totalPrice, 'totalProducts' => $totalProducts);
-    var_dump($_SESSION['totalCart']);
+    //var_dump($_SESSION['totalCart']);
+    return $_SESSION['totalCart'];
 }
 
 
+function updateCart($id, $newQuantity)
+{
+    if ($newQuantity>0) {
+        $_SESSION['cart'][$id] = $newQuantity;
+    }
+    if ($newQuantity ==0) {
+
+    }
+}
 
 
-// array(2) { ["id"]=> string(3) "126" ["quantité"]=> string(1) "5" }
 
 
 

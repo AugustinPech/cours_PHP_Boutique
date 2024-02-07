@@ -1,7 +1,7 @@
 <?php
 
-function getProduct(PDO $pdoConnection, $productId){
-    $statement = $pdoConnection->query("SELECT p.id, p.name, p.description, p.allTaxesIncludedPrice AS price, p.stock
+function getProductById(PDO $pdoConnection, $productId){ //query select * pour simplifier le merge
+    $statement = $pdoConnection->query("SELECT *
                         FROM products p
                         WHERE p.id = $productId");
     return $statement->fetch(PDO::FETCH_ASSOC);

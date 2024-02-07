@@ -1,13 +1,13 @@
 <?php
 //$metaTitle =("Commande N°") . $_SESSION['cart']['id'];
+global $cart;
 include('../resources/views/layouts/header.tpl.php');
 ?>
     <form action="/?action=cart">
-        <?php foreach ($_SESSION['cart'] as $product) { ?>
-
+        <?php foreach ($cart as $product) { ?>
             <article>
                 <h1>
-                    Ref : <?= $product['id'] ?> <?= $productId['title']; ?>
+                    Ref : <?= $product['id'] ?> <?= $product['title']; ?>
                 </h1>
                 <p>
                     Qté : <input type="number"
@@ -15,9 +15,8 @@ include('../resources/views/layouts/header.tpl.php');
                                  name="nbArticle" class="nombreArticle" min="1"
                                  max="100" value="<?= $product['nbArticle'] ?>"/>
                 </p>
-
                 <p>
-<?php echo $productId?>
+<?php echo $product?>
 <?php var_dump($_SESSION)?>
                 </p>
             </article>
@@ -27,3 +26,22 @@ include('../resources/views/layouts/header.tpl.php');
 <?php
 include('../resources/views/layouts/footer.tpl.php');
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

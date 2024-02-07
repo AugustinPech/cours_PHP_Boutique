@@ -1,17 +1,23 @@
 <?php
-session_start();
 
 $routerArray = [
-"home",
-"show",
-"cart",
-"destroy",
-"addToCart"
+    "home" =>"homeController.php",
+    "show" => "showController.php",
+    "cart"=> "cartController.php",
+    "addProductCart" => "addProductCartController.php",
+    "destroy"=> "destroyController.php",
+    "addToCart"=> "addToCartController.php",
 ];
-$router = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
-if (array_search($router, $routerArray) !== false) {
-$i = array_search($router, $routerArray);
-require "../app/controllers/" . $routerArray[$i] . "Controller.php";
-} else {
-require "../resources/views/errors/" . "404.php";
+
+$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
+if (empty($action)){
+    $action="home";
 }
+if (isset($routerArray[$action])) {
+    require "../app/controllers/" . $routerArray[$action];
+} else {
+    require "../resources/views/errors/" . "404.php";
+}
+
+
+

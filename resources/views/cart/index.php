@@ -48,7 +48,9 @@
                 </div>
             </div>
         <?php else: ?>
-            <p>Votre panier est vide.</p>
+            <div class="m-5">
+                <p>Votre panier est vide.</p>
+            </div>
         <?php endif;?>
     </form>
 </div>

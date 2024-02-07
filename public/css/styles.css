@@ -1,10 +1,17 @@
 header {
     height : 10vw;
+    /*background: black;*/
+}
+
+.navbar .container .collapse .navbar-nav .nav-item .nav-link {
+    color: white;
+    font-size: 25px;
+    padding-right: 2em;
 }
 
 .navbar-link a {
-    color : darkblue;
-    border: solid blue 2px;
+    color : white;
+    border: solid white 2px;
     border-radius: 15px;
     padding: 10px;
     text-decoration: none;
@@ -13,6 +20,10 @@ header {
 .navbar-link a:hover {
     color: aqua;
 
+}
+
+.navbar .container .col .cart {
+    color: white;
 }
 
 a#deleteProduct {

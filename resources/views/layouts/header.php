@@ -23,8 +23,8 @@
             <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"></a>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="/" class="nav-link text-uppercase font-weight-bold">Accueil</a> </li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">A propos</a></li>
+                        <li class="nav-item"><a href="/" class="nav-link text-uppercase">Accueil</a> </li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase">A propos</a></li>
                     </ul>
                 </div>
                 <div class="row">
@@ -35,16 +35,20 @@
                                 <p><?=$cartTotal['nbItem']?> produits : <?=$cartTotal['total']?> €</p>
                             </div>
                         <?php endif;?>
-                        <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Mon panier</a></div>
+                        <div class="navbar-link px-auto">
+                            <a href="/index.php?action=cart" >Mon panier</a>
+                        </div>
                     <?php else :
                         if ($_GET['action'] != 'cart') :
                             if (isset($_SESSION['cart'][0])):
                                 $cartTotal = totalCart($pdo, $_SESSION['cart']);?>
-                                <div class="col">
-                                    <p><?=$cartTotal['nbItem']?> produits : <?=$cartTotal['total']?> €</p>
+                                <div class="col" id="persistentCart">
+                                    <p class="cart"><?=$cartTotal['nbItem']?> produits : <?=$cartTotal['total']?> €</p>
                                 </div>
                             <?php endif;?>
-                            <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Voir mon panier</a></div>
+                            <div class="navbar-link px-auto">
+                                <a href="/index.php?action=cart" >Voir mon panier</a>
+                            </div>
                         <?php endif;
                     endif;?>
                 </div>

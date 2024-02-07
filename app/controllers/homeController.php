@@ -1,3 +1,5 @@
 <?php
-$products = getAllProduct($pdo);
-require_once '../resources/views/home.php';
+
+$getProducts = getNumberOfProducts($pdo, 12);
+
+require_once '../ressources/views/home.tpl.php';

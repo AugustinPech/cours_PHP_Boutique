@@ -54,23 +54,23 @@ function fakeCart(){
     ];
 }
 
-function totalCart(array $cart){
-    if (isset($cart[0])){
-        $total = 0;
-        $nbItem = 0;
-        foreach ($cart as $item) {
-            $total = $total + $item['total'];
-            $nbItem++;
-        }
-        return [
-            'total' => $total,
-            'nbItem' => $nbItem,
-            ];
+function totalCart(PDO $pdoConnection, array $cart)
+{
+    $total = 0;
+    $nbItem = 0;
+    foreach ($cart as $cartLine) {
+        $item = getProduct($pdoConnection, $cartLine['id']);
+        $total = $total + $item['price'] * $cartLine['quantity'];
+        $nbItem = $nbItem + $cartLine['quantity'];
     }
+    return [
+        'total' => $total,
+        'nbItem' => $nbItem,
+    ];
 }
 
 
-function makeCart($pdo, $sessionCart){
+function makeCart(PDO $pdoConnection, array $sessionCart){
 
     $cart = [
 //    [
@@ -90,7 +90,7 @@ function makeCart($pdo, $sessionCart){
     ];
     foreach ($sessionCart as $cartLine) {
         $productId = $cartLine['id'];
-        $product = getProduct($pdo, $productId);
+        $product = getProduct($pdoConnection, $productId);
         $cart[] = [
                 'id' => $cartLine['id'],
                 'name' => $product['name'],
@@ -100,6 +100,15 @@ function makeCart($pdo, $sessionCart){
         ];
     }
     return $cart;
+}
+
+function deleteProductCart(array &$cart, int $id){
+    foreach ($cart as $key => $value){
+        if ($value['id'] == $id){
+            unset($cart[$key]);
+        }
+
+    }
 }
 
 //function updateCart($cart, $){

@@ -12,7 +12,6 @@
                         <input type="hidden" name="id" id="id" value="<?=$product['id']?>">
                         <input type="number" name="quantity" id="quantity" min="1" value="1" style="width: 4em">
                         <input type="submit" value="Ajouter au panier"><br>
-                        <?=$product['id']?>
                     </form>
                 </div>
             </div>

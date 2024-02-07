@@ -28,26 +28,25 @@
                     </ul>
                 </div>
                 <div class="row">
-                <?php
-                if (!isset($_GET['action'])):
-                    if ($_GET['action'] != 'cart') :
-                        if (isset($_SESSION['myCartAmount'])):?>
-                            <div>
-                                <p><?=$_SESSION['myCartAmount']['nbItem']?> produit(s) : <?=$_SESSION['myCartAmount']['total']?> €</p>
+                    <?php if (!isset($_GET['action'])):
+                        if (isset($_SESSION['cart'][0])):
+                            $cartTotal = totalCart($pdo, $_SESSION['cart']);?>
+                            <div class="col">
+                                <p><?=$cartTotal['nbItem']?> produits : <?=$cartTotal['total']?> €</p>
                             </div>
                         <?php endif;?>
                         <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Mon panier</a></div>
                     <?php else :
                         if ($_GET['action'] != 'cart') :
-                            if (isset($_SESSION['myCartAmount'])):?>
-                                <div>
-                                    <p><?=$_SESSION['myCartAmount']['nbItem']?> produit(s) : <?=$_SESSION['myCartAmount']['total']?> €</p>
+                            if (isset($_SESSION['cart'][0])):
+                                $cartTotal = totalCart($pdo, $_SESSION['cart']);?>
+                                <div class="col">
+                                    <p><?=$cartTotal['nbItem']?> produits : <?=$cartTotal['total']?> €</p>
                                 </div>
                             <?php endif;?>
                             <div class="navbar-link px-auto"><a href="/index.php?action=cart" >Voir mon panier</a></div>
                         <?php endif;
-                        endif;
-                endif;?>
+                    endif;?>
                 </div>
             </div>
         </nav>

@@ -14,3 +14,12 @@ header {
     color: aqua;
 
 }
+
+a#deleteProduct {
+    color: red;
+    border: black solid 1px;
+    border-radius: 2px;
+    padding: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+}

@@ -17,5 +17,5 @@ $routes = [
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
 $action = isset($action) ? (array_key_exists($action, $routes) ? $action : '404') : 'Accueil';
-include $routes[$action];
+require_once $routes[$action];
 // End Part 1

@@ -1,11 +1,11 @@
 <?php
+
 if ($debugModeOnOff) { echo '<br>-- HomeView';}
 $metatitle = 'ForKIT Home Page';
 $metadescription = 'Home - Affiche le catalogue de produits';
 include '../ressources/views/layouts/head.tpl.php';
 include '../ressources/views/layouts/header.tpl.php';
 ?>
-
 
 <div class="d-flex col-12 flex-row flex-wrap justify-content-around ">
     <?php if (count($getProducts) > 0) : ?>
@@ -14,12 +14,15 @@ include '../ressources/views/layouts/header.tpl.php';
                 <p><a href="/?action=product&id=<?php echo $product['id']; ?>">
                     <?php echo $product['title']; ?>
                 </a></p>
+
                 <img src="img/product.avif" alt="product" class="col-10 m-1">
+
             </div>
         <?php endforeach;
     else : ?><div> Aucun Produits à afficher.</div>
     <?php endif; ?>
 </div>
+
 <div class="d-flex col-12 flex-column flex-wrap justify-content-around align-items-center">
     <p class="text-danger"><?php if (filter_input(INPUT_GET, 'delete', FILTER_SANITIZE_SPECIAL_CHARS) == 1) {
                                 echo "Article n°" . filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS) . " supprimé";
@@ -34,5 +37,6 @@ include '../ressources/views/layouts/header.tpl.php';
         </form>
     </div>
 </div>
+
 <?php
 include '../ressources/views/layouts/footer.tpl.php';

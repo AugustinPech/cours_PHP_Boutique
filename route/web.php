@@ -36,3 +36,4 @@ include $routes[$action];
 //debug
 if ($debugModeOnOff) {var_dump($_SESSION);}
 //end Debug
+

@@ -1,5 +1,5 @@
 <?php
 
+require_once'../bootstrap/app.php';
+require_once '../route/web.php';
 
-include '../bootstrap/app.php';
-include '../route/web.php';

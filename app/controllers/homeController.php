@@ -1,4 +1,5 @@
 <?php
+
 if ($debugModeOnOff) { echo '<br>- Homecontroller';}
 
 // Part 1
@@ -10,3 +11,9 @@ $getProducts = getNumberOfProducts($pdo, $numberOfProducts);
 // End Part 1
 
 include '../ressources/views/home.tpl.php';
+=======
+
+$getProducts = getNumberOfProducts($pdo, 12);
+
+require_once '../ressources/views/home.tpl.php';
+

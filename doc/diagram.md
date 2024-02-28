@@ -1,5 +1,5 @@
-#diagrammes liés au projet de site marchand
-##diagramme de la base de données
+# diagrammes liés au projet de site marchand
+## diagramme de la base de données
 ```mermaid
 erDiagram
     customers ||--o{ orders : places
@@ -45,4 +45,49 @@ erDiagram
 				int id
 				decimal taxeRate
 	}
+```
+## diagramme de la gestion du panier
+```mermaid
+sequenceDiagram
+
+	User->>productController.php: ?action=product
+		productController.php-->>index.php: ?action=addToCart
+		index.php ->> addToCartController.php:include
+		addToCartController.php->>cart.php: addToCart()
+		addToCartController.php->>index.php:?action=cart
+	User->>index.php: ?action=cart
+    index.php->>cartController.php: include
+    cartController.php->>cart.php: initCart()
+    cartController.php->>cart.php: fillCart(productId, $quantite)
+	cartController.php->>cart.php: prices sorted by subTotalCart() totalCart()
+	
+	cartController.php-->> index.php: ?action=emptyCart
+	index.php->>emptyCartController.php: include
+	emptyCartController.php->> cart.php : emptyCart()
+	emptyCartController.php->>index.php: ?action=cart
+	
+	cartController.php-->> index.php: ?action=modifyCart
+	index.php ->> modifyCartController.php: include
+	cart.php->>modifycart.php: modifyCart()
+	modifycart.php->>index.php: ?action=cart
+	
+	cartController.php-->> index.php: ?action=deleteProductFromCart
+	 index.php ->> deleteProductFromCartController.php: include
+	 cart.php->>deleteProductFromCartController.php: deleteProductFromCart()
+	 deleteProductFromCartController.php->>index.php:?action=cart
+	 
+    cartController.php->>cart.tpl.php: include
+    cart.tpl.php -->>User: prices and info on cart
+```
+## diagramme de la validation du panier
+```mermaid
+sequenceDiagram
+
+	User->>index.php:?action=validateCart
+    index.php->>validateCartController.php: include
+    validateCartController.php->>cart.php: validateCart($cart)
+		cart.php->>BDD :verifyStock($pdo, $cart)
+		cart.php->>BDD :createOrder($pdo)
+		validateCartController.php->>validateCart.tpl.php: include
+    validateCart.tpl.php -->>User: prices and info on Order
 ```

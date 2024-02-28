@@ -1,4 +1,17 @@
 <?php
+// Toggle Debug mode
+$debugModeOnOff=filter_input(INPUT_GET,'debug',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+if (!is_null($debugModeOnOff)) {
+    setcookie('debug', $debugModeOnOff, time() + 60);
+} elseif (isset($_COOKIE['debug'])) {
+    $debugModeOnOff = $_COOKIE['debug'];
+} else {$debugModeOnOff=false;}
+// end toggle debug mode
+
+if ($debugModeOnOff) {echo ' - web.php';}
+
+
+
 // Part 1
 // ----- Gestion des routes
 $routes = [
@@ -17,5 +30,10 @@ $routes = [
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
 $action = isset($action) ? (array_key_exists($action, $routes) ? $action : '404') : 'Accueil';
-require_once $routes[$action];
+include $routes[$action];
 // End Part 1
+
+//debug
+if ($debugModeOnOff) {var_dump($_SESSION);}
+//end Debug
+

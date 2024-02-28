@@ -9,3 +9,4 @@ $userId = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 
 validateCart($pdo, $userId, $newOrderId);
+header('Location: /?action=Accueil');
